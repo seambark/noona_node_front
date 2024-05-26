@@ -28,9 +28,10 @@ const LoginPage = () => {
         setError("");
         navigate("/");
       }
+
       throw new Error(response.message);
     } catch (error) {
-      setError(error.message);
+      setError(error.error);
     }
   };
 
