@@ -1,93 +1,223 @@
-body{
-  color: lightblue !important ;
-  background-color: aliceblue !important; 
+body {
+  color: lightblue !important;
+  background-color: aliceblue !important;
 }
 
 
 
-.todo-item{
+.todo-item {
   border: 1px solid lightblue;
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.todo-content{
-  padding:1em
+
+.todo-content {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 1em;
 }
-.add-item-row{
-  margin-top:50px !important;
+
+.todo-content p {
+  margin: 0;
+  color: #8199a0;
+}
+
+.todo-content .user-name {
+  margin-left: 10px;
+  color: #a1b6bc;
+  font-size: 14px;
+}
+
+.add-item-row {
+  height: 45px;
   margin-bottom: 30px;
 }
-.input-box{
-  padding: 10px;
-  width:100%;
-  border: 1px solid lightblue;
-  
-  
+
+.add-item-row .input-box {
+  height: 100%;
+  width: calc(100% - 110px);
 }
-.input-box:focus{
+
+.button-add {
+  height: 100%;
+  width: 100px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: lightblue;
+  color: white;
+}
+
+.input-box {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid lightblue;
+  border-radius: 4px;
+
+}
+
+.input-box:focus {
   outline: none;
 }
-button{
+
+button {
   background-color: lightblue;
   color: white;
+  border-radius: 4px;
 }
-.button-add{
-  height: 40px;
-  width: 100%;
-  border: none;
-  background-color: lightblue;
-  color: white;
-}
-.button-add:hover{
+
+
+
+.button-add:hover {
   background-color: white;
   color: lightblue;
   border: 2px solid lightblue;
 }
-.button-delete{
+
+.button-delete {
+  background-color: #bebebe;
+  border: 2px solid #bebebe;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.button-delete:hover {
+  background-color: #929292;
+  border: 2px solid #929292;
+}
+
+.button-play {
+  background-color: white;
+  border: 2px solid #ffb8b8;
+  color: #ffb8b8;
+  margin-right: 10px;
+}
+
+.button-play:hover {
+  background-color: #ffb8b8;
+  color: #ffffff;
+}
+
+.item-complete .button-play {
   background-color: white;
   border: 2px solid lightblue;
   color: lightblue;
-  margin: 10px;
+  margin-right: 10px;
 }
-.button-delete:hover{
+
+.item-complete .button-play:hover {
   background-color: lightblue;
   color: #ffffff;
 }
 
-.item-complete{
+.item-complete {
   background-color: gainsboro;
-  color:white;
+  color: white;
 }
 
-.login-box{
-  border:1px solid lightblue;
+.item-complete p {
+  text-decoration: line-through;
+}
+
+/* .item-complete .user-name {
+  text-decoration: line-through;
+} */
+
+.login-box {
+  border: 1px solid lightblue;
   max-width: 600px;
   width: 100%;
   background-color: white;
   padding: 20px;
 }
-.login-box label{
+
+.login-box label {
   font-weight: 700;
 }
 
-.display-center{
+.display-center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  
+
 }
 
-.button-box{
-  display:flex;
+.button-box {
+  display: flex;
   justify-content: space-between
 }
 
-.button-primary{
+.button-primary {
   background-color: lightblue;
   color: #ffffff;
-  border:none;
+  border: none;
+}
+
+.logoutBox {
+  margin: 45px 0 20px;
+  text-align: right;
+}
+
+.userText {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.logout {
+  border: 1px solid lightblue;
+  border-radius: 4px;
+}
+
+.logout:hover {
+  background-color: #fff;
+  color: lightblue;
+}
+
+.test-user {
+  margin-top: 10px;
+}
+
+.test-user span {
+  position: relative;
+}
+
+.test-user span:last-child::before {
+  content: "";
+  display: inline-block;
+  margin: 0 7px;
+  width: 1px;
+  height: 10px;
+  background-color: lightblue;
+}
+
+@media screen and (max-width: 768px) {
+  .display-center {
+    padding: 0 1rem;
+  }
+
+  .test-user {
+    width: 100%;
+    text-align: left;
+  }
+
+  .test-user span {
+    display: block;
+  }
+
+
+  .todo-content {
+    flex-direction: column;
+    justify-content: inherit;
+    padding: 0.5rem 1rem;
+  }
+
+  .todo-content .user-name {
+    margin-left: 0;
+    font-size: 12px;
+  }
 }

@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import api from "../utils/api";
 
 import { Link } from "react-router-dom";
 
-const LoginPage = () => {
+const LoginPage = ({ user, setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  // eslint-disable-next-line
-  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -34,6 +32,10 @@ const LoginPage = () => {
       setError(error.error);
     }
   };
+
+  if (user) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className="display-center">
@@ -66,6 +68,9 @@ const LoginPage = () => {
           </span>
         </div>
       </Form>
+      <p className="test-user">
+        <span>테스트 계정 : hong@gmail.com</span> <span>비밀번호 : 123</span>
+      </p>
     </div>
   );
 };

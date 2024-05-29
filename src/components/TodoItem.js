@@ -10,14 +10,18 @@ const TodoItem = ({ item, updateTask, deleteTask }) => {
             item?.isComplete === false ? `` : `item-complete`
           }`}
         >
-          <div className="todo-content">{item?.task}</div>
-
-          <div>
+          <div className="todo-content">
+            <p>{item?.task}</p>
+            {item?.author && item?.author.name && (
+              <span className="user-name">{item?.author.name}</span>
+            )}
+          </div>
+          <div className="unit-area">
             <button
-              className="button-delete"
+              className="button-play"
               onClick={() => updateTask(item?._id, item?.isComplete)}
             >
-              {item?.isComplete === false ? `종료` : `재시작`}
+              {item?.isComplete === false ? `종료` : `시작`}
             </button>
             <button
               className="button-delete"

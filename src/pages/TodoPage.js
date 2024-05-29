@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import api from "../utils/api";
 
-function App() {
+const TodoList = ({ user }) => {
   const [todoList, setTodoList] = useState([]);
   const [todoValue, setTodoValue] = useState("");
 
@@ -74,14 +74,31 @@ function App() {
     }
   };
 
+  const userLogout = () => {
+    sessionStorage.clear();
+    window.location.reload();
+  };
+
   useEffect(() => {
     getTasks();
   }, []);
 
   return (
     <Container>
+      <Row>
+        <Col>
+          <div className="logoutBox">
+            <p className="userText">
+              <b>{user?.name}</b>님 환영합니다!
+            </p>
+            <button type="button" className="logout" onClick={userLogout}>
+              로그아웃
+            </button>
+          </div>
+        </Col>
+      </Row>
       <Row className="add-item-row">
-        <Col xs={12} sm={10}>
+        <Col>
           <input
             type="text"
             placeholder="할일을 입력하세요"
@@ -89,8 +106,6 @@ function App() {
             value={todoValue}
             onChange={(e) => setTodoValue(e.target.value)}
           />
-        </Col>
-        <Col xs={12} sm={2}>
           <button className="button-add" onClick={addTask}>
             추가
           </button>
@@ -104,6 +119,6 @@ function App() {
       />
     </Container>
   );
-}
+};
 
-export default App;
+export default TodoList;
